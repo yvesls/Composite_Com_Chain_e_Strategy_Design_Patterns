@@ -20,7 +20,7 @@ public class Caixa extends Componente {
 		this.qtdItens = 0;
 		this.qtdItensSuportado = QtdItensSuportado;
 		this.pesoSuportado = pesoSuportado;
-		this.volumeSuportado = volume - 10;
+		this.volumeSuportado = volume - (volume*0.02);
 		this.tipoSuportado = tipoSuportado;
 	}
 
