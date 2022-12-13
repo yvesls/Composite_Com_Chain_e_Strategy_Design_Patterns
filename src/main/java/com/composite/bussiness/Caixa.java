@@ -7,6 +7,7 @@ import com.composite.service.ProcessadoraRestricoesService;
 
 public class Caixa extends Componente {
 	private List<Componente> itens;
+	private List<String[]> itensRejeitados;
 	private ProcessadoraRestricoesService restricoes;
 	private int qtdItens;
 	private int qtdItensSuportado;
@@ -17,6 +18,7 @@ public class Caixa extends Componente {
 	public Caixa(String nome, Double preco, Double peso, Double pesoSuportado, Double volume, String tipo, String[] tipoSuportado, int QtdItensSuportado) {
 		super(nome, preco, peso, 0.0, tipo);
 		this.itens = new ArrayList<Componente>();
+		this.itensRejeitados = new ArrayList<String[]>();
 		this.qtdItens = 0;
 		this.qtdItensSuportado = QtdItensSuportado;
 		this.pesoSuportado = pesoSuportado;
@@ -26,13 +28,17 @@ public class Caixa extends Componente {
 
 	public void add(Componente item) {
 		this.restricoes = new ProcessadoraRestricoesService(item, this);
-		try {
-			this.restricoes.processar();
-			this.itens.add(item);
-			qtdItens ++;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		this.restricoes.processar();
+		this.itens.add(item);
+		qtdItens ++;
+	}
+	
+	public List<String[]> getItensRejeitados(){
+		return this.itensRejeitados;
+	}
+	
+	public void addItemRejeitado(String[] item) {
+		this.itensRejeitados.add(item);
 	}
 	
 	@Override

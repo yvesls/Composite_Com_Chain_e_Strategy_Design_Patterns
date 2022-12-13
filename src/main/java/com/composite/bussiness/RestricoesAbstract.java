@@ -9,5 +9,5 @@ public abstract class RestricoesAbstract {
 		this.caixa = caixa;
 	}
 	
-	public abstract void processar() throws Exception;
+	public abstract void processar();
 }

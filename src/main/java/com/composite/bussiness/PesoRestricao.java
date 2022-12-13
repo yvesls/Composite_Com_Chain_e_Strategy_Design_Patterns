@@ -7,9 +7,10 @@ public class PesoRestricao extends RestricoesAbstract{
 	}
 
 	@Override
-	public void processar() throws Exception {
+	public void processar() {
 		if((this.caixa.getPeso()+this.item.getPeso()) > this.caixa.getPesoSuportado()) {
-			throw new Exception("O peso da caixa passou do limite suportado.");
+			String[] itemRejeitado = {"Item: " + this.item.getNome(), "Motivo: Peso ultrapassa o limite suportado."};
+			this.caixa.addItemRejeitado(itemRejeitado);
 		}
 	}
 }

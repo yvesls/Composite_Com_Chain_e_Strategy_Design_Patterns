@@ -7,9 +7,10 @@ public class VolumeRestricao extends RestricoesAbstract{
 	}
 
 	@Override
-	public void processar() throws Exception {
+	public void processar() {
 		if((this.caixa.getVolume()+this.item.getVolume()) > this.caixa.getVolumeSuportado()) {
-			throw new Exception("O volume da caixa passou do limite suportado.");
+			String[] itemRejeitado = {"Item: " + this.item.getNome(), "Motivo: Volume ultrapassa o limite suportado."};
+			this.caixa.addItemRejeitado(itemRejeitado);
 		}
 	}
 

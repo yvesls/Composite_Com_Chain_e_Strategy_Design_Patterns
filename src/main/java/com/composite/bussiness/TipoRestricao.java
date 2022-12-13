@@ -7,7 +7,7 @@ public class TipoRestricao extends RestricoesAbstract{
 	}
 
 	@Override
-	public void processar() throws Exception {
+	public void processar() {
 		int verifica = 0;
 		for(String cx : this.caixa.getTipoSuportado()) {
 			if(cx.equals(this.item.getTipo())) {
@@ -15,7 +15,8 @@ public class TipoRestricao extends RestricoesAbstract{
 			}
 		}
 		if(verifica == 0) {
-			throw new Exception("A caixa n„o suporta esse tipo de item.");
+			String[] itemRejeitado = {"Item: " + this.item.getNome(), "Motivo: Tipo n√£o suportado."};
+			this.caixa.addItemRejeitado(itemRejeitado);
 		}
 	}
 }

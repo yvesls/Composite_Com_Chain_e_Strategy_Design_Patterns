@@ -13,7 +13,7 @@ public class ProcessadoraRestricoesChain {
 		this.proximo = proximo;
 	}
 
-	public void executar() throws Exception {
+	public void executar() {
 		restricao.processar();
 		
 		if (restricao == null)

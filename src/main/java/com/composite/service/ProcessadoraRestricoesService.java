@@ -18,7 +18,7 @@ public class ProcessadoraRestricoesService {
 								new ProcessadoraRestricoesChain(new QtdItensRestricao(item, caixa), null))));
 	}
 
-	public void processar() throws Exception {
+	public void processar() {
 		chain.executar();
 	}
 }

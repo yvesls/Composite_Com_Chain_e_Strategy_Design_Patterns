@@ -1,5 +1,7 @@
 package com.composite.client;
 
+import java.util.List;
+
 import com.composite.bussiness.Caixa;
 import com.composite.bussiness.CaixaPlusBuilder;
 import com.composite.bussiness.CaixaPremiumBuilder;
@@ -22,7 +24,7 @@ public class client {
 		
 		// Insere caixa de brinquedos na caixa grande
 		caixaGrande.add(caixaBrinquedos);
-		// For�ando erro
+		// Forçando erro
 		caixaGrande.add(botijaoGas);
 		
 		System.out.println(caixaBrinquedos.getNome());
@@ -38,7 +40,7 @@ public class client {
 		System.out.println("Quantidade de item: " + caixaGrande.getQtdItens());
 		System.out.println("...............................");
 		
-		// utilizando o builder
+		// utilizando o builder para criar caixas prontas
 		Diretor diretor1 = new Diretor();
 		Diretor diretor2 = new Diretor();
 		Caixa caixaPlus = diretor1.Build(new CaixaPlusBuilder());
@@ -55,5 +57,50 @@ public class client {
 		System.out.println("Peso: " + caixaPremium.getPeso() + " gramas");
 		System.out.println("Volume suportado: " + caixaPremium.getVolumeSuportado() + " cm3");
 		System.out.println("Quantidade de item: " + caixaPremium.getQtdItens());
+		System.out.println("...............................");
+		
+		// Imprime itens rejeitados para cada caixa
+		if(caixaGrande.getItensRejeitados().size() != 0) {
+			System.out.println("Itens rejeitados da caixa 'Compras de natal':");
+			List<String[]> itens = caixaGrande.getItensRejeitados();
+			for(String[] item : itens) {
+				for(String value : item) {
+					System.out.println(value);
+				}
+			}
+		}
+		
+		if(caixaBrinquedos.getItensRejeitados().size() != 0) {
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			System.out.println("Itens rejeitados da caixa 'Brinquedos Diversos':");
+			List<String[]> itens = caixaBrinquedos.getItensRejeitados();
+			for(String[] item : itens) {
+				for(String value : item) {
+					System.out.println(value);
+				}
+			}
+		}
+		
+		if(caixaPlus.getItensRejeitados().size() != 0) {
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			System.out.println("Itens rejeitados da Caixa Plus:");
+			List<String[]> itens = caixaPlus.getItensRejeitados();
+			for(String[] item : itens) {
+				for(String value : item) {
+					System.out.println(value);
+				}
+			}
+		}
+		
+		if(caixaPremium.getItensRejeitados().size() != 0) {
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			System.out.println("Itens rejeitados da Caixa Premium:");
+			List<String[]> itens = caixaPremium.getItensRejeitados();
+			for(String[] item : itens) {
+				for(String value : item) {
+					System.out.println(value);
+				}
+			}
+		}
 	}
 }
