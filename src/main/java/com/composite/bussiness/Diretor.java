@@ -2,7 +2,7 @@ package com.composite.bussiness;
 
 public class Diretor {
 	
-	public Caixa Build(CaixaBuilder builder) {
+	public Caixa build(CaixaBuilder builder) {
 		builder.criaCaixa();
 		builder.addComestiveis();
 		builder.addBebidas();

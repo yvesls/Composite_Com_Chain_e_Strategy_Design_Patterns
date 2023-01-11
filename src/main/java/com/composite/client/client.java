@@ -43,8 +43,8 @@ public class client {
 		// utilizando o builder para criar caixas prontas
 		Diretor diretor1 = new Diretor();
 		Diretor diretor2 = new Diretor();
-		Caixa caixaPlus = diretor1.Build(new CaixaPlusBuilder());
-		Caixa caixaPremium = diretor2.Build(new CaixaPremiumBuilder());
+		Caixa caixaPlus = diretor1.build(new CaixaPlusBuilder());
+		Caixa caixaPremium = diretor2.build(new CaixaPremiumBuilder());
 		
 		System.out.println(caixaPlus.getNome());
 		System.out.println("Pre�o: " + caixaPlus.getPreco() + " R$");
